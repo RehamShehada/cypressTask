@@ -76,7 +76,6 @@ export default class HomeBasePage{
             .invoke('text')
             .then((value) => {
                 itemsCount = (value.match(/\d+/))[0]
-                cy.log(itemsCount)
                 assert.isTrue(itemsCount == initialCount+1, 'Items  test added to shopping cart were increased by one')
             })
         })
@@ -86,17 +85,16 @@ export default class HomeBasePage{
      * This method to get the initial number of items added to shopping cart 
      */
     static get_initial_cart_items (){
-        let initItemsCount
+        let initItemsCount = 0
         cy.get('body', { timeout: TIMEOUT }).within(($body) => {
             if ($body.find(LOCATORS.cartBadge, { timeout: TIMEOUT }).length > 0) {
                 cy.invoke('text')
                 .then((value) => {
                     initItemsCount = (value.match(/\d+/))[0]
-                    cy.wrap(initItemsCount).as('initItemsCount')
                 })
+            } else {
+                cy.wrap(initItemsCount).as('initItemsCount')
             }
-            initItemsCount = 0   
-            cy.wrap(initItemsCount).as('initItemsCount')
         })
     }
 }
