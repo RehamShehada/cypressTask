@@ -1,0 +1,17 @@
+{
+  "name": "task-cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.28.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-mocha": "^10.1.0",
+    "eslint-plugin-react": "^7.31.11"
+  }
+}
